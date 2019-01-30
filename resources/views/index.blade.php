@@ -49,7 +49,7 @@
   <!-- END PRELOADER -->    
 
   <!-- SCROLL TOP BUTTON -->
-    <a class="scrollToTop" href="#"><i class="fa fa-chevron-up"></i></a>
+    <a id="scrollpataas" class="scrollToTop" href="#"><i class="fa fa-chevron-up"></i></a>
   <!-- END SCROLL TOP BUTTON -->
 
   <!-- Start header section -->  
@@ -97,6 +97,7 @@
             <li><a href="#anime">ANIME</a></li>   
             <li><a href="#about">ABOUT</a></li>   
             <li><a href="#contact">Login</a></li>
+            <li ng-show="showAccount"><img src="assets/images/logo.jpg" style="border-radius: 50%; height: 45px; width: 45px;" />   @{{fullname}}</li>
           </ul>                            
         </div><!--/.nav-collapse -->
        <div class="search-area">
@@ -789,15 +790,37 @@
         <div class="col-md-12 col-sm-6 col-xs-12" style="padding: 0 30% 0 30%; margin-top: -10px;">
           <div class="contact-right wow fadeInRight" style="text-align:center;">
             <h2>Login your MorAnimeList Account</h2>
+            <div id="login" ng-show="loginbtn">
               <div class="form-group">                
                 <input type="text" class="form-control" placeholder="username" ng-Model="data.username">
               </div>
               <div class="form-group">                
                 <input type="password" class="form-control" placeholder="password" ng-Model="data.password">
               </div>
+            </div>
+            <div id="register" ng-show="!loginbtn">
+              <div class="form-group">                
+                  <input type="text" class="form-control" placeholder="First Name" ng-Model="data.fname">
+                </div>
+                <div class="form-group">                
+                  <input type="text" class="form-control" placeholder="Middle Name" ng-Model="data.mname">
+                </div>
+                <div class="form-group">                
+                  <input type="text" class="form-control" placeholder="Last Name" ng-Model="data.lname">
+                </div>
+                <div class="form-group">                
+                  <input type="email" class="form-control" placeholder="Email" ng-Model="data.email">
+                </div>
+                <div class="form-group">                
+                  <input type="text" class="form-control" placeholder="Username" ng-Model="data.username">
+                </div>
+                <div class="form-group">                
+                  <input type="password" class="form-control" placeholder="Password" ng-Model="data.password">
+                </div>
+            </div>
               <div class="col-md-12" style="text-align:center; display:flex; align-items:center; justify-content: center;">
-                <button type="submit" data-text="Register" class="button button-default"><span>Register</span></button>
-                <button type="submit" data-text="Login" class="button button-default" style="margin-left: -8px; width: 100px;" ng-click="login(data)"><span>Login</span></button>
+                <button type="button" data-text="Register" ng-click="register(data)"  class="button button-default"><span>Register</span></button>
+                <button type="button" ng-show="loginbtn" data-text="Login" class="button button-default" style="margin-left: -8px; width: 100px;" ng-click="login(data)"><span>Login</span></button>
               </div>
           </div>
         </div>

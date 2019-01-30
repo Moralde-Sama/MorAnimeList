@@ -13,3 +13,4 @@
 
 Route::get('/', 'HomeController@IndexView');
 Route::post('/Account/checkaccount', 'AccountController@getUser');
+Route::post('/Account/register', 'AccountController@register');
